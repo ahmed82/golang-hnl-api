@@ -9,7 +9,7 @@ import (
 	"nhlApiproject/nhlApi"
 )
 
-func ()  {
+func main() {
 	//For benchmarking the request time
 	now := time.Now()
 	bolbFile, err := os.OpenFile("bolbs.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
@@ -20,7 +20,7 @@ func ()  {
 
 	defer bolbFile.Close()
 
-	wrt := io.Multiwriter(os.Stdout, bolbFile)
+	wrt := io.MultiWriter(os.Stdout, bolbFile)
 
 	log.SetOutput(wrt)
 
@@ -31,9 +31,9 @@ func ()  {
 	}
 
 	for _, team := range teams {
-		log.Printn("-----------------------")
+		log.Println("-----------------------")
 		log.Printf("Name: %s", team.Name)
-		log.Printn("-----------------------")
+		log.Println("-----------------------")
 	}
 
 	log.Printf("took %v", time.Now().Sub(now).String())
