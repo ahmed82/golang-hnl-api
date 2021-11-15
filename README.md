@@ -8,3 +8,9 @@ JsonToGo: https://mholt.github.io/json-to-go/
 go mod init nhlApiproject
 cat go.mod
 ```
+
+## Run the App
+
+```
+go run .\main.go
+```
